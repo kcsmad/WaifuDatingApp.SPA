@@ -9,6 +9,7 @@ import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 
 import { AuthService } from './services/auth.service';
+import {HttpClient} from '@angular/common/http';
 
 
 @NgModule({
