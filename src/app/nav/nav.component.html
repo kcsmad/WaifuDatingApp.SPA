@@ -44,7 +44,9 @@
             role="button"
             aria-haspopup="true"
             aria-expanded="false"
-          >Welcome User<span class="caret"></span></a>
+          >
+            Welcome {{authService.decodedToken?.unique_name | titlecase}}<span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
             <li role="separator" class="divider"></li>
