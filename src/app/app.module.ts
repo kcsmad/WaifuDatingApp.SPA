@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AlertifyService } from './services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { RegisterComponent } from './register/register.component';
     }),
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

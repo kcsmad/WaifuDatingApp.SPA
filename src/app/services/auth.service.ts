@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-  baseUrl = 'http://localhost:56367/api/auth';
+  baseUrl = 'http://localhost:56367/api/auth/';
   userToken: any;
   decodedToken: any;
   currentUser: any;
