@@ -9,13 +9,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Waifu Dating App</a>
+      <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="$router_link-active$">Waifu Dating App</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul *ngIf="loggedIn()" class="nav navbar-nav">
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Lists</a></li>
-        <li><a href="#">Messages</a></li>
+        <li><a [routerLink]="['/members']" routerLinkActive="$router_link-active$">Matches</a></li>
+        <li><a [routerLink]="['/lists']" routerLinkActive="$router_link-active$">Lists</a></li>
+        <li><a [routerLink]="['/messages']" routerLinkActive="$router_link-active$">Messages</a></li>
       </ul>
 
       <form *ngIf="!loggedIn()" #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
