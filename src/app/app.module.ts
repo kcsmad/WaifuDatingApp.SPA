@@ -27,7 +27,7 @@ import { RegisterComponent } from './register/register.component';
         tokenGetter: () => {
           return localStorage.getItem('token');
         },
-        whitelistedDomains: ['localhost:56365']
+        whitelistedDomains: ['localhost:56367']
       }
     }),
     FormsModule

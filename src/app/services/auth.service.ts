@@ -1,11 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthUser } from '../_models/auth-user';
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-  baseUrl = 'http://localhost:56365/api/auth';
+  baseUrl = 'http://localhost:56367/api/auth';
   userToken: any;
   decodedToken: any;
   currentUser: any;
@@ -40,7 +44,28 @@ export class AuthService {
 
   register(model: any) {
     return this.http.post(this.baseUrl + 'register', model,
-      {headers: new HttpHeaders().set('Content-Type', 'application/json')});
+      {headers: new HttpHeaders().set('Content-Type', 'application/json')}).catch(this.handleError);
+  }
+
+  private handleError(error: any) {
+    const applicationError = error.headers.get('Application-Error');
+    if (applicationError) {
+      return Observable.throw(applicationError);
+    }
+
+    const serverError = error.json();
+
+    let modelStateErrors = '';
+
+    if (serverError) {
+      for(const key in serverError) {
+        if (serverError[key]) {
+          modelStateErrors += serverError[key] + '\n';
+        }
+
+        return Observable.throw(modelStateErrors || 'Server error');
+      }
+    }
   }
 
 }
