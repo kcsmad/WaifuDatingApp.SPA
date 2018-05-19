@@ -58,7 +58,7 @@ export class AuthService {
     let modelStateErrors = '';
 
     if (serverError) {
-      for(const key in serverError) {
+      for (const key in serverError) {
         if (serverError[key]) {
           modelStateErrors += serverError[key] + '\n';
         }
