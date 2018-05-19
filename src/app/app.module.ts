@@ -12,6 +12,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './services/alertify.service';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AlertifyService } from './services/alertify.service';
   ],
   imports: [
     BrowserModule,
+    BsDropdownModule.forRoot(),
     HttpClientModule,
     JwtModule.forRoot({
       config: {
