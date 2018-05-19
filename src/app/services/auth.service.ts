@@ -38,4 +38,9 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
+  register(model: any) {
+    return this.http.post(this.baseUrl + 'register', model,
+      {headers: new HttpHeaders().set('Content-Type', 'application/json')});
+  }
+
 }
