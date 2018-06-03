@@ -8,6 +8,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
+import { AuthModule } from './auth/auth.module';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -45,7 +46,8 @@ import { MemberCardComponent } from './members/member-card/member-card.component
         whitelistedDomains: ['localhost:56367']
       }
     }),
-    FormsModule
+    FormsModule,
+    AuthModule
   ],
   providers: [
     AuthService,
