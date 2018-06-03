@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../_models/User';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -25,7 +25,7 @@ export class UserService {
     if (token) {
       const headers = new Headers({'Authorization': 'Bearer ' + token});
       headers.append('Content-type', 'application/json');
-      return new RequestOptions({ headers: headers});
+      return new HttpHeaders.set({ headers: headers});
     }
   }
 
