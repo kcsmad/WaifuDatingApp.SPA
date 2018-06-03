@@ -20,6 +20,12 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  getUser(id: number): Observable<User> {
+    return this.authHttp.get(this.baseUrl + 'users/' + id)
+      .map(resp => <User> resp.json())
+      .catch(this.handleError);
+  }
+
   private handleError(error: any) {
     const applicationError = error.headers.get('Application-Error');
     if (applicationError) {
