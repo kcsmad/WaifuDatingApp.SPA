@@ -6,8 +6,9 @@ import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/of';
 
-@Injectable
+@Injectable()
 export class MemberEditResolver implements Resolve<User> {
 
   constructor(private service: UserService,

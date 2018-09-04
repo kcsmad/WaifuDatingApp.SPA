@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/of';
 
-@Injectable
+@Injectable()
 export class MemberDetailResolver implements Resolve<User> {
 
   constructor(private service: UserService,
